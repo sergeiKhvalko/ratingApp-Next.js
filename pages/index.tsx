@@ -1,12 +1,15 @@
-import React from 'react';
-import { Button, Htag, P, Tag } from '../components';
+import React, { useState } from 'react';
+import { Button, Htag, P, Tag, Rating } from '../components';
 
 
 export default function Home(): JSX.Element {
+
+  const [counter, setCounter] = useState<number>(0);
+
   return (
     <div>
-      <Htag tag={'h1'}>Заголовок</Htag>
-      <Button appearance={'primary'} arrow={'right'}>Кнопка</Button>
+      <Htag tag={'h1'}>{counter}</Htag>
+      <Button appearance={'primary'} arrow={'right'} onClick={() => setCounter(count => count + 1)}>Кнопка</Button>
       <Button appearance={'ghost'} arrow={'down'}>Кнопка</Button>
       <P>
         Выше указаны программы Adobe InDesign, Adobe Illustrator, Corel Draw и ими можно успешно пользоваться дома или в дороге. Современные ноутбуки хорошо справляются с нагрузкой, так зачем загонять специалиста в душный офис. В этой профессии важным считается вдохновение, поэтому дизайнеры ищут его в разных местах.
@@ -19,6 +22,7 @@ export default function Home(): JSX.Element {
       <Tag size={'m'} color={'red'}>hh.ru</Tag>
       <Tag size={'m'} color={'primary'}>primary</Tag>
       <Tag color={'ghost'}>Web design</Tag>
+      <Rating rating={3}></Rating>
     </div>
   );
 }
